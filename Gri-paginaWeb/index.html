@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navegación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #37A5ED;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #A9D0EA;
+            padding: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-size: 27px;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        section {
+            display: none;
+            padding: 20px;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        .fotos {
+            flex-direction: column;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            position: absolute;
+            top: 16.5%;
+            color: #007bff;
+            font-size: 35px;
+
+
+        }
+
+        #titulo-mirabal {
+            position: absolute;
+            top: 27%;
+            left: 45px;
+            color: #007bff;
+            font-size: 35px;
+        }
+
+        #parrafo-mirabal {
+            padding-top: 2%;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        #foto-mirabal {
+            top: 16.5%;
+            width: 500px;
+            height: 300px;
+            border-radius: 10px;
+        }
+
+        #patrias-padres {
+            position: absolute;
+            top: 115%;
+            color: #007bff;
+            font-size: 35px;
+        }
+
+        #parrafo-patrias {
+            padding-top: 3%;
+            font-size: 19px;
+            text-align: left;
+        }
+
+        #foto-patria {
+            top: 10%;
+            width: 460px;
+            height: 450px;
+            border-radius: 10px;
+            margin: 5px;
+        }
+
+        #parrafo-conde {
+            padding-top: 30px;
+            font-size: 19px;
+            text-align: left;
+        }
+
+        #foto-conde {
+            /* top: 16.5%; */
+            width: 460px;
+            height: 350px;
+            border-radius: 10px;
+            margin: 5px;
+        }
+
+        #titulo-conde {
+            position: absolute;
+            top: 280%;
+            left: 44px;
+            color: #007bff;
+            font-size: 35px;
+            margin: 10px;
+        }
+
+        div {
+            margin: 15px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            width: 450px;
+            height: 250px;
+            border-radius: 5px;
+        }
+
+        #titulo-escudo {
+            position: absolute;
+            top: 30%;
+            left: 1.5%;
+            color: #007bff;
+            font-size: 35px;
+            margin: 10px;
+        }
+
+        #box-img-escudo {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        #escudo-img {
+            position: absolute;
+            top: 43%;
+            left: 1.5%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 0.5%;
+            width: 45%;
+            height: 55%;
+            border-radius: 5px;
+        }
+
+        #escudo-img2 {
+            position: absolute;
+            top: 43%;
+            right: 15%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1%;
+            width: 25%;
+            height: 45%;
+            border-radius: 1%;
+        }
+
+        #sub-titulo-escudo {
+            position: absolute;
+            top: 99%;
+            left: 1.5%;
+            margin: 1%;
+        }
+
+        #sub-titulo-escudo2 {
+            position: absolute;
+            top: 94%;
+            right: 21%;
+            margin: 1%;
+            font-size: 25px;
+            align-self: center;
+        }
+
+        #parrafo-escudo {
+            position: absolute;
+            top: 101%;
+            left: 22px;
+            padding-top: 30px;
+            font-size: 19px;
+            text-align: left;
+            margin: 10px;
+        }
+
+        #titulo-himno {
+
+            position: absolute;
+            top: 30%;
+            left: 1.5%;
+            color: #007bff;
+            font-size: 35px;
+            margin: 10px;
+        }
+
+        #emilio-jose {
+            /* position: absolute;
+            top: 10%; */
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        #foto-prud-home {
+            position: absolute;
+            top: 49%;
+            left: 1.5%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 0.5%;
+            width: 40%;
+            height: 50%;
+            border-radius: 5px;
+        }
+
+        #foto-jose-reyes {
+            position: absolute;
+            top: 49%;
+            right: 2%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 0.5%;
+            width: 30%;
+            height: 50%;
+            border-radius: 5px;
+        }
+
+        #himno2 {
+            position: absolute;
+            top: 220%;
+            font-size: 19px;
+            text-align: center;
+            margin: 10px;
+        }
+
+        #audio-himno {
+            position: absolute;
+            top: 288%;
+            left: 40%;
+            margin-bottom: 30%;
+        }
+
+        #name-emilio {
+            position: absolute;
+            top: 102%;
+            left: 2%;
+        }
+
+        #parrafo-emilio {
+            position: absolute;
+            top: 105%;
+            left: 1.5%;
+            padding-top: 30px;
+            font-size: 19px;
+            text-align: left;
+            margin: 10px;
+        }
+
+        #name-jose {
+
+            position: absolute;
+            top: 150%;
+            left: 2%;
+        }
+
+        #parrafo-jose {
+
+            position: absolute;
+            top: 155%;
+            left: 22px;
+            padding-top: 30px;
+            font-size: 19px;
+            text-align: left;
+            margin: 10px;
+        }
+
+        #titulo-bandera {
+            position: absolute;
+            top: 30%;
+            left: 1.5%;
+            color: #007bff;
+            font-size: 35px;
+            margin: 10px;
+        }
+
+        #bandera2 {
+            margin-top: 2%;
+            font-size: 19px;
+            text-align: center;
+        }
+
+        #box-flag {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+
+        #foto-flag1 {
+            position: absolute;
+            top: 48%;
+            left: 2%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 0.5%;
+            width: 30%;
+            height: 50%;
+            border-radius: 5px;
+        }
+
+        #foto-flag2 {
+            position: absolute;
+            top: 48%;
+            right: 2%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 0.5%;
+            width: 30%;
+            height: 50%;
+            border-radius: 5px;
+        }
+
+        #parrafos-flag {
+            position: absolute;
+            top: 160%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            max-width: 100%;
+            width: 100%;
+            height: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Simbolos Patrios</h1>
+    </header>
+
+    <nav>
+        <a href="#inicio" onclick="mostrarSeccion('inicio')">Inicio</a>
+        <a href="#escudo" onclick="mostrarSeccion('escudo')">Escudo</a>
+        <a href="#bandera" onclick="mostrarSeccion('bandera')">Bandera</a>
+        <a href="#himno" onclick="mostrarSeccion('himno')">Himno</a>
+
+    </nav>
+
+    <section id="inicio" class="active">
+        <h2 id="titulo-mirabal">Hermanas Mirabal</h2>
+        <div class="fotos">
+            <div>
+                <p id="parrafo-mirabal">Las hermanas Mirabal, también conocidas como Las Mirabal o Las Mariposas, fueron
+                    tres hermanas
+                    dominicanas que se opusieron a la dictadura de Rafael Leónidas Trujillo. Patria, Minerva y María
+                    Teresa Mirabal fueron asesinadas el 25 de noviembre de 1960.
+
+                    Patria Mirabal
+
+                    Patria Mirabal nació el 27 de febrero de 1924 en Ojo de Agua, Salcedo, República Dominicana. Fue la
+                    mayor de las tres hermanas. Se casó con Pedro González y tuvo tres hijos.
+
+                    Patria fue una de las primeras mujeres en unirse al movimiento clandestino contra Trujillo.
+                    Participó en la distribución de propaganda y en la recaudación de fondos para la resistencia.
+
+                    Minerva Mirabal
+
+                    Minerva Mirabal nació el 12 de marzo de 1926 en Ojo de Agua, Salcedo, República Dominicana. Fue la
+                    segunda de las tres hermanas. Se casó con Manolo Tavárez Justo y tuvo dos hijos.
+
+                    Minerva fue una de las líderes más destacadas del movimiento clandestino contra Trujillo. Fue una
+                    abogada brillante y una oradora elocuente.
+
+                    María Teresa Mirabal
+
+                    María Teresa Mirabal nació el 1 de febrero de 1935 en Ojo de Agua, Salcedo, República Dominicana.
+                    Fue la menor de las tres hermanas. Se casó con Leandro Guzmán y tuvo una hija.
+
+                    María Teresa fue una de las más activas participantes del movimiento clandestino contra Trujillo.
+                    Era una mujer alegre y extrovertida, y su carisma ayudó a atraer a más personas a la causa.
+
+                    El asesinato de las hermanas Mirabal fue un evento que conmocionó a la República Dominicana y al
+                    mundo entero. Se convirtió en un símbolo de la lucha contra la dictadura y ayudó a acelerar su
+                    caída.
+
+                    Las hermanas Mirabal fueron declaradas heroínas nacionales de la República Dominicana en 1992. Su
+                    historia ha sido contada en libros, películas y obras de teatro. Su legado sigue inspirando a
+                    personas en todo el mundo a luchar por la democracia y los derechos humanos.</p>
+                <img id="foto-mirabal" src="./assets/hermanas-mirabales.jpg" alt="Imagen 1">
+            </div>
+
+
+
+            <div>
+                <h2 id="patrias-padres">Los Padres de la Patrias</h2>
+
+                <p id="parrafo-patrias">Juan Pablo Duarte
+
+                    Juan Pablo Duarte y Díez nació el 26 de enero de 1813 en Santo Domingo. Fue el principal líder de la
+                    independencia dominicana y el fundador de la sociedad secreta La Trinitaria.
+
+                    Duarte se formó en la Escuela Normal de Santo Domingo y en la Universidad de Santo Tomás. Desde su
+                    juventud, se interesó por la política y la libertad de su país. En 1838, fundó La Trinitaria, una
+                    sociedad secreta que tenía como objetivo la independencia de la República Dominicana.
+
+                    Duarte fue un líder carismático y visionario. Convenció a otros jóvenes de su generación a unirse a
+                    la lucha por la independencia. La Trinitaria se expandió rápidamente y se convirtió en una fuerza
+                    importante en la política dominicana.
+
+                    En 1844, Duarte proclamó la independencia de la República Dominicana. Sin embargo, el gobierno
+                    español recuperó el control del país en 1844. Duarte tuvo que exiliarse en Curazao y Haití.
+
+                    Duarte regresó a la República Dominicana en 1848. Sin embargo, fue encarcelado por el gobierno de
+                    Pedro Santana. En 1850, Duarte fue exiliado a Venezuela.
+
+                    Duarte murió en Caracas, Venezuela, el 15 de julio de 1876. Su legado sigue siendo un símbolo de la
+                    lucha por la independencia y la democracia en la República Dominicana.
+
+                    Matías Ramón Mella
+
+                    Matías Ramón Mella Castillo nació el 25 de febrero de 1816 en Santo Domingo. Fue un militar y
+                    político dominicano que desempeñó un papel importante en la independencia de la República
+                    Dominicana.
+
+                    Mella se formó en la Escuela Normal de Santo Domingo y en la Universidad de Santo Tomás. Desde su
+                    juventud, se interesó por la política y la libertad de su país. En 1838, se unió a La Trinitaria,
+                    una sociedad secreta que tenía como objetivo la independencia de la República Dominicana.
+
+                    Mella fue un militar talentoso. En 1844, lideró el ataque al cuartel de Santo Domingo, conocido como
+                    el "Trabucazo". Este evento marcó el inicio de la guerra de independencia dominicana.
+
+                    Mella fue un miembro del gobierno provisional de la República Dominicana. En 1844, fue nombrado
+                    comandante en jefe del ejército dominicano.
+
+                    Mella murió en Santo Domingo el 4 de junio de 1864. Su legado sigue siendo un símbolo de la lucha
+                    por la independencia y la democracia en la República Dominicana.
+
+                    Francisco del Rosario Sánchez
+
+                    Francisco del Rosario Sánchez nació el 9 de marzo de 1817 en Santo Domingo. Fue un político y
+                    diplomático dominicano que desempeñó un papel importante en la independencia de la República
+                    Dominicana.
+
+                    Sánchez se formó en la Escuela Normal de Santo Domingo y en la Universidad de Santo Tomás. Desde su
+                    juventud, se interesó por la política y la libertad de su país. En 1838, se unió a La Trinitaria,
+                    una sociedad secreta que tenía como objetivo la independencia de la República Dominicana.
+
+                    Sánchez fue un político carismático y elocuente. En 1844, fue nombrado secretario del gobierno
+                    provisional de la República Dominicana.
+
+                    Sánchez fue un líder importante en la lucha por la independencia dominicana. En 1845, lideró la
+                    resistencia dominicana contra la invasión haitiana.
+
+                    Sánchez murió en Santo Domingo el 4 de julio de 1861. Su legado sigue siendo un símbolo de la lucha
+                    por la independencia y la democracia en la República Dominicana.
+
+                    Estos tres hombres son conocidos como los "Padres de la Patria" de la República Dominicana. Su lucha
+                    por la independencia es un ejemplo de la determinación y el sacrificio que los dominicanos han
+                    demostrado a lo largo de su historia.</p>
+
+                <img id="foto-patria" src=" ./assets/padres-patrias.jpg" alt="Imagen 2">
+            </div>
+
+            <div>
+                <h2 id="titulo-conde">Puerta del Conde</h2>
+                <p id="parrafo-conde">La Puerta del Conde es un monumento histórico ubicado en la ciudad de Santo
+                    Domingo, República
+                    Dominicana. Es una de las puertas de acceso a la antigua ciudad amurallada, y fue escenario de la
+                    proclamación de la independencia dominicana el 27 de febrero de 1844.
+
+                    La Puerta del Conde fue construida en el siglo XVII, durante el período de dominio español.
+                    Originalmente, se llamaba Bastión de San Genaro, y era una de las tres puertas principales de la
+                    ciudad amurallada.
+
+                    En 1844, la Puerta del Conde fue el escenario de la proclamación de la independencia dominicana. El
+                    general Francisco del Rosario Sánchez, uno de los Padres de la Patria, subió a la puerta y izó la
+                    bandera dominicana.
+
+                    Desde entonces, la Puerta del Conde se ha convertido en un símbolo de la independencia dominicana.
+                    Es un lugar de peregrinación para los dominicanos, y es un recordatorio de la lucha por la libertad
+                    del país.
+
+                    Una historia sobre la Puerta del Conde
+
+                    Era una noche oscura y fría de febrero de 1844. El general Francisco del Rosario Sánchez y un grupo
+                    de patriotas se reunieron en secreto en la Puerta del Conde. Estaban planeando la proclamación de la
+                    independencia dominicana.
+
+                    Sánchez era un hombre valiente y decidido. Estaba decidido a liberar a su país del dominio español.
+                    Había estado trabajando en secreto durante años para organizar la revolución.
+
+                    Esa noche, Sánchez y sus compañeros patriotas decidieron que era hora de actuar. Se reunieron en la
+                    Puerta del Conde y comenzaron a preparar la proclamación de la independencia.
+
+                    Sánchez subió a la puerta y izó la bandera dominicana. Luego, pronunció un discurso en el que
+                    proclamó la independencia de la República Dominicana.
+
+                    El discurso de Sánchez fue un momento histórico. Fue el comienzo de una nueva era para la República
+                    Dominicana.
+
+                    La Puerta del Conde es un monumento importante en la historia de la República Dominicana. Es un
+                    recordatorio de la lucha por la libertad del país, y es un símbolo de la esperanza y la
+                    determinación del pueblo dominicano.</p>
+                <img id="foto-conde" src="./assets/puerta-conde-2.jpg" alt="Imagen 3">
+            </div>
+        </div>
+    </section>
+
+    <section id="escudo">
+        <h2 id="titulo-escudo">Escudos de la Republia Dominicana</h2>
+        <div id="box-img-escudo">
+
+            <img id="escudo-img" src="./assets/escudos-rd.jpg" alt="Imagen 1">
+
+            <h3 id="sub-titulo-escudo2">Escudo Actual</h3>
+            <img id="escudo-img2" src="./assets/escudo-actual.jpg" alt="Imagen 1">
+        </div>
+        <h3 id="sub-titulo-escudo">Evolución del Escudo de República Dominicana</h3>
+        <p id="parrafo-escudo">Las constituciones de 1844, 1854, 1908, 1916, 1924, 1942, 1966 y 2010, al referirse al
+            Escudo Nacional,
+            coinciden en detallar que “las armas de la República Dominicana son: una cruz, a cuyo pie está abierto el
+            libro de los Evangelios y ambos sobresalen de entre un trofeo de armas. Establecen, además que llevan en una
+            cinta el lema: Dios, Patria y Libertad”.
+
+            Aunque esta variedad de escudos fue apareciendo en el lapso de 1844 hasta el 1913, esto no significaba que
+            el más reciente desplazara al anterior; eran usados indistintamente tanto unos como otros en documentos
+            oficiales y a veces se combinaban unos con otros o se omitían detalles en algunos. Cada vez que se reformaba
+            la Constitución, se hacían pequeñas correcciones al describir el Escudo.
+
+            Solamente a partir del año 1913 se oficializó una uniformidad heráldica mediante decreto del 6 de febrero de
+            1913 expedido por el gobierno del Monseñor Adolfo Nouel, que establecía la forma actual. En el mismo decreto
+            aparecía un diseño, hecho por Casimiro Nemesio de Moya, reproduciendo el Gran Sello de la Nación.
+
+            La única reforma constitucional en referirse al capítulo y versículo en que debe estar abierta la Biblia del
+            Escudo Nacional es la del año 2010. La misma señala que la Biblia se encuentra abierta en el Evangelio de
+            San Juan, capítulo 8, versículo 32 y dice: “Y conoceréis la verdad, y la verdad os hará libres”.
+
+            Constitución
+            La existencia del escudo está consagrada en la constitución de la república, que lo describe de la manera
+            siguiente:
+
+            Artículo 32- El Escudo Nacional tiene los mismos colores de la Bandera Nacional dispuestos en igual forma.
+            Lleva en el centro la Biblia abierta en el Evangelio de San Juan capítulo 8, versículo 32 y encima una cruz,
+            lo cual surge de un trofeo integrado por tres lanzas y cuatro banderas nacionales sin escudo, dispuestas a
+            ambos lados; lleva un ramo de laurel del lado izquierdo y uno de palma al lado derecho. Está coronado por
+            una cinta azul ultramar en la cual se lee el lema “Dios Patria Libertad”. En la base hay otra cinta de color
+            rojo bermellón cuyos extremos se orientan hacia arriba con las palabras “República Dominicana”. La forma del
+            Escudo Nacional es de un cuadrilongo, con los ángulos superiores salientes y los inferiores redondeados, el
+            centro de cuya base termina en punta, y está dispuesto en forma tal que resulte un cuadrado perfecto al
+            trazar una línea horizontal que una las dos verticales del cuadrilongo desde donde comienzan los ángulos
+            inferiores.
+
+        </p>
+    </section>
+
+    <section id="himno">
+        <h2 id="titulo-himno">Himno Nacional de la Republica Dominicana</h2>
+
+        <br><br>
+
+        <p id="himno2">
+
+            <b>Letra: Emilio Prud'Homme</b>
+
+            <br>
+            <br>
+            <b>Música: José Reyes</b>
+            <br>
+            <br>
+
+            Quisqueyanos valientes, alcemos
+            Nuestro canto con viva emoción,
+            Y del mundo a la faz ostentemos
+            Nuestro invicto glorioso pendón.
+            ¡Salve! El pueblo que, intrépido y fuerte,
+            A la guerra a morir se lanzó,
+            Cuando en bélico reto de muerte
+            Sus cadenas de esclavo rompió.
+            Ningún pueblo ser libre merece
+            Si es esclavo indolente y servil;
+            Si en su pecho la llama no crece
+            Que templó el heroísmo viril,
+            Mas Quisqueya la indómita y brava
+            Siempre altiva la frente alzará;
+            Que si fuese mil veces esclava
+            Otras tantas ser libre sabrá.
+            Que si dolo y ardid la expusieron
+            De un intruso señor al desdén,
+            ¡Las Carreras! ¡Beller!, campos fueron
+            Que cubiertos de gloria se ven.
+            Que en la cima de heroico baluarte
+            De los libres el verbo encarnó,
+            Donde el genio de Sánchez y Duarte
+            A ser libre o morir enseñó.
+            Y si pudo inconsulto caudillo
+            De esas glorias el brillo empañar,
+            De la guerra se vio en Capotillo
+            La bandera de fuego ondear.
+            Y el incendio que atónito deja
+            De Castilla al soberbio León,
+            De las playas gloriosas le aleja
+            Donde flota el cruzado pendón.
+            Compatriotas, mostremos erguida
+            Nuestra frente, orgullosos de hoy más;
+            Que Quisqueya será destruida
+            Pero sierva de nuevo, ¡jamás!
+            Que es santuario de amor cada pecho
+            Do la patria se siente vivir;
+            Y es su escudo invencible: el derecho;
+            Y es su lema: ser libre o morir.
+            ¡Libertad! que aún se yergue serena
+            La Victoria en su carro triunfal,
+            Y el clarín de la guerra aún resuena
+            Pregonando su gloria inmortal.
+            ¡Libertad! Que los ecos se agiten
+            Mientras llenos de noble ansiedad
+            Nuestros campos de gloria repiten
+            ¡Libertad! ¡Libertad! ¡Libertad!
+        </p>
+
+        <br>
+
+        <audio id="audio-himno" controls>
+            <source src="./assets/audio/HIMNO-NACIONAL-DE-REPUBLICA-DOMINICANA.mp3" type="audio/mp3">
+
+        </audio>
+
+        <br>
+        <br>
+        <div id="emilio-jose">
+            <img id="foto-prud-home" src="./assets/Emilio-prud-home.jpg" alt="Imagen 1">
+            <img id="foto-jose-reyes" src="./assets/Jose-Reyes.jpg" alt="Imagen 1">
+        </div>
+        <h3 id="name-emilio">Emilio Prud'Home</h3>
+        <br>
+        <p id="parrafo-emilio">Prud'Homme nació en una familia de clase media. Su padre, Pedro Prud'Homme, era un
+            comerciante y su madre, Ana Maduro, era una ama de casa. Comenzó sus estudios primarios en Puerto Plata y
+            luego se trasladó a Santo Domingo para continuar sus estudios secundarios.
+
+            En 1874, Prud'Homme se graduó de la Escuela Normal de Santo Domingo. Luego, estudió derecho en la
+            Universidad de Santo Tomás. Se graduó de abogado en 1880.
+
+            Prud'Homme se interesó por la música y la literatura desde temprana edad. Escribió poemas, novelas y obras
+            de teatro. También compuso música.
+
+            En 1883, Prud'Homme escribió las letras del Himno Nacional Dominicano. El Himno fue adoptado oficialmente en
+            1884.
+
+            Prud'Homme también fue un político activo. Se desempeñó como diputado de la Cámara de Diputados de la
+            República Dominicana en dos ocasiones. También fue secretario de Justicia y Instrucción Pública en el
+            gobierno de Francisco Henríquez y Carvajal.
+
+            Prud'Homme falleció en Santo Domingo el 21 de julio de 1932. Fue un hombre que contribuyó significativamente
+            a la cultura y la política dominicanas.
+
+            Las letras del Himno Nacional Dominicano son un poema patriótico que exalta los valores de la libertad, la
+            independencia y la soberanía. El poema es un ejemplo del patriotismo de Prud'Homme y su compromiso con la
+            República Dominicana.</p>
+
+        <h3 id="name-jose">Jose Reyes y Siancas</h3>
+
+        <br>
+        <p id="parrafo-jose">José Reyes y Siancas fue un músico y compositor dominicano, nacido en Santo Domingo el 15
+            de noviembre de
+            1836 y fallecido en la misma ciudad el 31 de enero de 1905. Es conocido por ser el compositor de la música
+            del Himno Nacional Dominicano.
+            <br>
+            Reyes nació en una familia de clase media. Su padre, Rafael Reyes, era un comerciante y su madre, María
+            Merced Siancas, era una ama de casa. Comenzó sus estudios musicales a temprana edad, y aprendió a tocar
+            varios instrumentos, incluyendo la guitarra, el violín y el piano.
+
+            En 1856, Reyes se unió a la Logia Esperanza, una organización masónica que promovía la cultura y la
+            educación. En la Logia, Reyes conoció a Emilio Prud'Homme, el autor de las letras del Himno Nacional
+            Dominicano.
+
+            En 1882, Reyes compuso la música del Himno Nacional Dominicano. La música fue inspirada en el himno nacional
+            francés, La Marseillaise. El Himno fue adoptado oficialmente en 1884.
+
+            Reyes también compuso otras obras musicales, incluyendo canciones, marchas y piezas instrumentales. También
+            fue un profesor de música y un director de orquesta.
+
+            Reyes falleció en Santo Domingo el 31 de enero de 1905. Fue un hombre que contribuyó significativamente a la
+            música y la cultura dominicanas.
+
+            La música del Himno Nacional Dominicano es una composición patriótica que exalta los valores de la libertad,
+            la independencia y la soberanía. La música es un ejemplo del talento y el patriotismo de Reyes.
+        </p>
+    </section>
+
+    <section id="bandera">
+        <h2 id="titulo-bandera"> Banderade la Republica Dominicana</h2>
+
+        <div id="box-flag">
+            <img id="foto-flag1" src="./assets/primeraFlag.png" alt="Imagen 1">
+            <img id="foto-flag2" src="./assets/actual-flag.jpg" alt="Imagen 1">
+        </div>
+        <div id="parrafos-flag">
+            <p id="bandera2">La bandera dominicana se ha modificado 7 veces a lo largo de su historia.</p>
+            <br>
+            <p id="bandera2">La primera bandera fue diseñada en 1844, poco después de la proclamación de la
+                independencia
+                del país. Tenía tres franjas horizontales, dos azules y una blanca en el centro.</p>
+            <br>
+            <p id="bandera2">En 1845, se agregó una cruz blanca en el centro de la bandera.</p>
+            <br>
+            <p id="bandera2">En 1861, la República Dominicana se unió al Imperio Español. Durante este período, se usó
+                una
+                bandera española con el escudo de la República Dominicana en el centro.</p>
+            <br>
+            <p id="bandera2">En 1865, la República Dominicana recuperó su independencia. Se restauró la bandera de 1845.
+            </p>
+            <br>
+            <p id="bandera2">En 1869, se cambió el diseño de la cruz blanca. Se hizo más simple y simétrica.</p>
+            <br>
+            <p id="bandera2">En 1913, se realizaron algunos cambios menores en el diseño de la bandera. Se cambió el
+                ancho
+                de las franjas azules y se agregó una hoja de palma al escudo.</p>
+            <br>
+            <p id="bandera2">En 1943, se adoptó la bandera actual. Se mantuvo el diseño de 1913, pero se cambió el color
+                del
+                escudo a azul ultramar.</p>
+            <br>
+            <p id="bandera2">La bandera dominicana es un símbolo importante de la identidad nacional del país.
+                Representa la
+                libertad, la independencia y la soberanía dominicanas.</p>
+        </div>
+
+    </section>
+
+    <script>
+        function mostrarSeccion(seccion) {
+            // Oculta todas las secciones
+            document.querySelectorAll('section').forEach(function (sec) {
+                sec.classList.remove('active');
+            });
+
+            // Muestra la sección correspondiente
+            document.getElementById(seccion).classList.add('active');
+        }
+    </script>
+
+</body>
+
+</html>
